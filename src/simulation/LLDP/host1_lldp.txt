@@ -1,0 +1,8 @@
+<host1> display lldp nei list
+-------------------------------------------------------------------------------
+Local Interface      Chassis ID          Port ID           System Name
+-------------------------------------------------------------------------------
+Ten-GigabitEthernet1/0/1  001e.7cff.1234    Ten-GigabitEthernet1/0/48   Switch-Neighbor1
+Ten-GigabitEthernet1/0/2  001e.7cff.5678    Ten-GigabitEthernet1/0/49   Switch-Neighbor2
+-------------------------------------------------------------------------------
+Total number of neighbors: 2

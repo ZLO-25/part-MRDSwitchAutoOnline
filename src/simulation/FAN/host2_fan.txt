@@ -1,0 +1,10 @@
+<host2> display fan
+Slot 1:
+ Fan 1:
+  State                  : Normal
+  Airflow Direction      : Port-to-power
+  Preferred Airflow Direction : Port-to-power
+ Fan 2:
+  State                  : Fail
+  Airflow Direction      : Port-to-power
+  Preferred Airflow Direction : Port-to-power

@@ -1,0 +1,5 @@
+[Power]
+host1 (192.168.0.1) - Power fail
+[Fan]
+host2 (192.168.0.2) - Fan fail
+host3 (192.168.0.3) - Fan fail

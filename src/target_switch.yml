@@ -1,0 +1,23 @@
+IPv4:
+  - 192.168.0.1
+  - 192.168.0.2
+  - 192.168.0.3
+
+hostname:
+  - host1
+  - host2
+  - host3
+
+port_mappings:
+  - switch_hostname: "host1"
+    local_port_to_neighbor:
+      - "Ten-GigabitEthernet1/0/1, Ten-GigabitEthernet1/0/48, Switch-Neighbor1"
+      - "Ten-GigabitEthernet1/0/2, Ten-GigabitEthernet1/0/49, Switch-Neighbor2"
+  - switch_hostname: "host2"
+    local_port_to_neighbor:
+      - "Ten-GigabitEthernet1/0/3, Ten-GigabitEthernet1/0/48, Switch-Neighbor1"
+      - "Ten-GigabitEthernet1/0/2, Ten-GigabitEthernet1/0/49, Switch-Neighbor2"
+  - switch_hostname: "host3"
+    local_port_to_neighbor:
+      - "Ten-GigabitEthernet1/0/1, Ten-GigabitEthernet1/0/48, Switch-Neighbor1"
+      - "Ten-GigabitEthernet1/0/2, Ten-GigabitEthernet1/0/49, Switch-Neighbor2"

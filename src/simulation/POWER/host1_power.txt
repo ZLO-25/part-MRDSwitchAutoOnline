@@ -1,0 +1,6 @@
+<host1> display power
+Slot 1:
+ Input Power: 240(W)
+ PowerID   State   Mode   Current(A)  Voltage(V)  Power(W)
+   1      Normal   AC        10          12         120
+   2      Fail   AC        10          12         120

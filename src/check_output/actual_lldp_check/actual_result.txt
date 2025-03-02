@@ -1,0 +1,1 @@
+host1 (192.168.0.1) - Failed to retrieve LLDP output from switch at 192.168.0.1.

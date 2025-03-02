@@ -1,0 +1,10 @@
+<HPE5945> display fan
+Slot 1:
+ Fan 1:
+  State                  : Normal
+  Airflow Direction      : Port-to-power
+  Preferred Airflow Direction : Port-to-power
+ Fan 2:
+  State                  : Normal
+  Airflow Direction      : Port-to-power
+  Preferred Airflow Direction : Port-to-power
