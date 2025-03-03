@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Choose an Action</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      margin-right: 10px;
+    }
+    input[type="file"] {
+      display: block;
+      margin-top: 5px;
+    }
+    button {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .section {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 4px;
+      background-color: #fafafa;
+    }
+    textarea {
+      width: 100%;
+      resize: vertical;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      padding: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Choose an Action</h1>
+    
+    <!-- Flash 訊息 -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: green;">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
+    <form id="executeForm" action="{{ url_for('index') }}" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <p>請選擇要執行的 Python 檔案：</p>
+        <input type="radio" id="check_status" name="python_file" value="check_status.py" required>
+        <label for="check_status">Check power and fan</label><br>
+        
+        <input type="radio" id="check_lldp" name="python_file" value="check_lldp.py">
+        <label for="check_lldp">Check lldp</label><br>
+        
+        <input type="radio" id="update_config" name="python_file" value="update_config.py">
+        <label for="update_config">Update config</label>
+      </div>
+      
+      <div class="form-group">
+        <label for="target_switch">上傳 target_switch.yml：</label>
+        <input type="file" id="target_switch" name="target_switch" accept=".yml,.yaml" required>
+      </div>
+      
+      <button type="submit">送出</button>
+    </form>
+    
+    <!-- Log 顯示區 -->
+    <div class="section">
+      <h2>Log</h2>
+      <textarea id="log_output" rows="20" readonly>{{ log_output }}</textarea>
+      <br>
+      <button id="clearLogBtn">清除 Log</button>
+    </div>
+    
+    <!-- Output 區 -->
+    <div class="section">
+      <h2>Output</h2>
+      <textarea id="simulation_output" rows="15" readonly>{{ simulation_output }}</textarea>
+    </div>
+  </div>
+  
+  <script>
+    $("#clearLogBtn").click(function(){
+      $.post("{{ url_for('clear_logs') }}", function(data){
+        if(data.status === "success"){
+          $("#log_output").val("");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
